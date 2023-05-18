@@ -16,7 +16,7 @@ private val retrofit = Retrofit.Builder()
 interface PokeApiService {
     // todo:APIのendpoint確認
     @GET("id")
-    fun getPokeInfo(): String
+    suspend fun getPokeInfo(): String
 }
 
 object PokeApi {
