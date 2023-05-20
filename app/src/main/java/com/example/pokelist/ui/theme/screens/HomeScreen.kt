@@ -23,6 +23,7 @@ fun ResultScreen(pokeList: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun ErrorScreen(modifier: Modifier = Modifier) {
+    Text(text = "Getting data failed")
 }
 
 @Composable
