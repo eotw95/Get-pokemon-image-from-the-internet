@@ -3,7 +3,7 @@ package com.example.pokelist.network
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Poke(
-    val id: String,
-    val name: String
+data class PokeDex(
+    val id: Int = 0,
+    val name: String = ""
 )
