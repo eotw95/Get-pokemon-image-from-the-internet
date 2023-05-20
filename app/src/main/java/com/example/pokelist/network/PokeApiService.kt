@@ -6,10 +6,12 @@ import okhttp3.MediaType
 import retrofit2.Retrofit
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
+private const val ID = "1"
+private const val BASE_URL = "https://pokeapi.co/api/v2/pokemon/$ID/"
 
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(Json.asConverterFactory(MediaType.get("application:json")))
+private val retrofit = Retrofit
+    .Builder()
+    .addConverterFactory(Json.asConverterFactory(MediaType.get("application/json")))
     .baseUrl(BASE_URL)
     .build()
 
