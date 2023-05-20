@@ -6,8 +6,8 @@ import okhttp3.MediaType
 import retrofit2.Retrofit
 import retrofit2.http.GET
 
-private const val ID = "1"
-private const val BASE_URL = "https://pokeapi.co/api/v2/pokemon/$ID/"
+private const val ID = "65"
+private const val BASE_URL = "https://pokeapi.co/api/v2/ability/$ID/"
 
 private val retrofit = Retrofit
     .Builder()
