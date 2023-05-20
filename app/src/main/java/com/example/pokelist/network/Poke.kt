@@ -1,3 +1,9 @@
 package com.example.pokelist.network
 
-data class Poke()
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class Poke(
+    val id: String,
+    val name: String
+)
