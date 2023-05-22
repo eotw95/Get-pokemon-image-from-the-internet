@@ -9,8 +9,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-//private const val BASE_URL = "https://pokeapi.co/api/v2/"
-private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com"
+private const val BASE_URL = "https://pokeapi.co/api/v2/"
 
 private val retrofit = Retrofit
     .Builder()
@@ -19,10 +18,8 @@ private val retrofit = Retrofit
     .build()
 
 interface PokeApiService {
-    //@GET("berry/{id}/")
-    @GET("photos")
-    //fun getPokeDex(@Path("id") id: String): String //Response<PokeDex>
-    suspend fun getPokeDex(): String
+    @GET("berry/{id}/")
+    fun getPokeDex(@Path("id") id: String): String //Response<PokeDex>
 }
 
 object PokeApi {
