@@ -19,10 +19,9 @@ private val retrofit = Retrofit
     .build()
 
 interface PokeApiService {
-    @GET("berry/1/")
+    @GET("pokemon/{name}/")
     //@GET("photos")
-    suspend fun getPokeDex(): String //Response<PokeDex>
-    //suspend fun getPokeDex(): String
+    suspend fun getPokeDex(@Path("name") name: String): String //Response<PokeDex>
 }
 
 object PokeApi {
