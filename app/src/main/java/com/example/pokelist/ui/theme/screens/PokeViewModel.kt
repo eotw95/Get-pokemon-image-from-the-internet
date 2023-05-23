@@ -23,14 +23,14 @@ class PokeViewModel: ViewModel() {
     private set
 
     init {
-        getPokeList()
+        getPokemonInfo()
     }
 
-    private fun getPokeList() {
+    private fun getPokemonInfo() {
         Log.d(TAG, "getPokeList")
         viewModelScope.launch {
             pokeUiState = try {
-                val pokeInfo = PokeApi.retrofitService.getPokeDex("chikorita")
+                val pokeInfo = PokeApi.retrofitService.getPokeData("chikorita")
                 PokeUiState.Success(pokeInfo)
             } catch (e: Exception) {
                 Log.e(TAG, "getPokeList failed")
