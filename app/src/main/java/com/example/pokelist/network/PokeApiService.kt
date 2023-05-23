@@ -21,6 +21,7 @@ private val retrofit = Retrofit
 interface PokeApiService {
     @GET("pokemon/{name}/")
     //@GET("photos")
+    // @Pathで引数をエンドポイントに指定する
     suspend fun getPokeDex(@Path("name") name: String): String //Response<PokeDex>
 }
 
