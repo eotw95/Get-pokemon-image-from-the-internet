@@ -22,7 +22,7 @@ interface PokeApiService {
     @GET("pokemon/{name}/")
     //@GET("photos")
     // @Pathで引数をエンドポイントに指定する
-    suspend fun getPokeDex(@Path("name") name: String): String //Response<PokeDex>
+    suspend fun getPokeData(@Path("name") name: String): String //Response<PokeDex>
 }
 
 object PokeApi {
