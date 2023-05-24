@@ -33,6 +33,7 @@ class PokeViewModel: ViewModel() {
                 val pokeInfo = PokeApi.retrofitService.getPokeData("chikorita")
                 PokeUiState.Success(pokeInfo)
             } catch (e: Exception) {
+                Log.d(TAG, "$e")
                 Log.e(TAG, "getPokeList failed")
                 PokeUiState.Error
             }
