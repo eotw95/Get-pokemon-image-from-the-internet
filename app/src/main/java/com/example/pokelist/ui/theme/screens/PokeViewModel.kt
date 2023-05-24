@@ -32,7 +32,7 @@ class PokeViewModel: ViewModel() {
         Log.d(TAG, "getPokeList")
         viewModelScope.launch {
             pokeUiState = try {
-                val pokeInfo = PokeApi.retrofitService.getPokeData("chikorita")
+                val pokeInfo = PokeApi.retrofitService.getPokeData("1")
                 PokeUiState.Success(pokeInfo)
             } catch (e: Exception) {
                 Log.d(TAG, "$e")

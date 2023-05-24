@@ -19,10 +19,10 @@ private val retrofit = Retrofit
     .build()
 
 interface PokeApiService {
-    @GET("pokemon/{name}/")
+    @GET("berry/{id}/")
     //@GET("photos")
     // @Pathで引数をエンドポイントに指定する
-    suspend fun getPokeData(@Path("name") name: String): String //Response<PokeDex>
+    suspend fun getPokeData(@Path("id") id: String): String //Response<PokeDex>
 }
 
 object PokeApi {
