@@ -27,6 +27,7 @@ class PokeViewModel: ViewModel() {
     }
 
     // デバイスの時刻を現在時刻と一致させないとSSLHandshakeException発生する
+    // エミュレーターの時刻を自動設定にしても現在時刻と合わないので手動で設定
     private fun getPokemonInfo() {
         Log.d(TAG, "getPokeList")
         viewModelScope.launch {
