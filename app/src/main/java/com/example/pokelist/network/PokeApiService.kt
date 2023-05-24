@@ -10,7 +10,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 private const val BASE_URL = "https://pokeapi.co/api/v2/"
-//private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com"
 
 private val retrofit = Retrofit
     .Builder()
@@ -20,7 +19,6 @@ private val retrofit = Retrofit
 
 interface PokeApiService {
     @GET("berry/{id}/")
-    //@GET("photos")
     // @Pathで引数をエンドポイントに指定する
     suspend fun getPokeData(@Path("id") id: String): String //Response<PokeDex>
 }
