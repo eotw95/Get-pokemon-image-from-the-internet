@@ -26,6 +26,7 @@ data class Pokemon(
     val weight: Int?,
 )
 
+// data classでデータの定義
 @Serializable
 data class PokemonAbility(
     val ability: Ability?,
