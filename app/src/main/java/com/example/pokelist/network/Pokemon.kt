@@ -3,6 +3,7 @@ package com.example.pokelist.network
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+// Todo: data classの用意
 @Serializable
 data class Pokemon(
     val abilities: List<PokemonAbility>?,
