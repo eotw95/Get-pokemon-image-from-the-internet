@@ -25,3 +25,10 @@ data class Pokemon(
     val types: List<PokemonType>?,
     val weight: Int?,
 )
+
+@Serializable
+data class PokemonAbility(
+    val ability: Ability?,
+    val slot: Int?,
+    @SerialName("is_hidden")val isHidden: Boolean?
+)
