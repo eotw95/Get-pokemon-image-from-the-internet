@@ -8,9 +8,6 @@ import com.example.pokelist.ui.theme.screens.PokeViewModel
 
 @Composable
 fun PokeListApp(modifier: Modifier = Modifier) {
-    // Composable内でviewModelをインスタンス化する際は
-    // lifecycle-viewmodel-composeライブラリのviewModel()を使用。シングルトン。
-    // 普通にViewModel()でインスタンス化すると再Composeが連発し大量のインスタンスが生成されてしまう。
     val pokeViewModel: PokeViewModel = viewModel()
     HomeScreen(pokeUiState = pokeViewModel.pokeUiState)
 }

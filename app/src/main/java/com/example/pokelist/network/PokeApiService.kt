@@ -16,7 +16,6 @@ private val retrofit = Retrofit
     .baseUrl(BASE_URL)
     .build()
 
-// Todo: data class定義してJson文字列をパースする
 interface PokeApiService {
     @GET("pokemon/{name}/")
     suspend fun getPokeData(@Path("name") name: String): Response<Pokemon>
