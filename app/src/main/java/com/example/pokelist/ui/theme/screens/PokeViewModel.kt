@@ -7,10 +7,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokelist.network.PokeApi
+import com.example.pokelist.network.Pokemon
 import kotlinx.coroutines.launch
 
 interface PokeUiState {
-    data class Success(val pokeList: String): PokeUiState
+    data class Success(val pokeList: List<Pokemon>): PokeUiState
     object Error: PokeUiState
     object Loading: PokeUiState
 }
@@ -32,7 +33,7 @@ class PokeViewModel: ViewModel() {
         Log.d(TAG, "getPokeList")
         viewModelScope.launch {
             pokeUiState = try {
-                val pokeInfo = PokeApi.retrofitService.getPokeData("1")
+                val pokeInfo = PokeApi.retrofitService.getPokeData("aaa")
                 PokeUiState.Success(pokeInfo)
             } catch (e: Exception) {
                 Log.d(TAG, "$e")
