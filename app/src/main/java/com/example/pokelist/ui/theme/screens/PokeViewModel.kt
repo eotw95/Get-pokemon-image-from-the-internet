@@ -34,6 +34,7 @@ class PokeViewModel: ViewModel() {
         viewModelScope.launch {
             pokeUiState = try {
                 val pokeInfo = PokeApi.retrofitService.getPokeData("aaa")
+                // Todo: PokeUiStateの型を修正
                 PokeUiState.Success(pokeInfo)
             } catch (e: Exception) {
                 Log.d(TAG, "$e")
