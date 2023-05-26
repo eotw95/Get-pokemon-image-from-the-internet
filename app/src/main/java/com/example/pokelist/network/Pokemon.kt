@@ -6,30 +6,30 @@ import kotlinx.serialization.Serializable
 // Todo: APIのデータ構造に合わせたdata classの用意
 @Serializable
 data class Pokemon(
-    val abilities: List<PokemonAbility>?,
+    val id: Int?,
+    val name: String,
     @SerialName("base_experience") val baseExperience: Int?,
+    val height: Int?,
+    @SerialName("is_default") val isDefault: Boolean?,
+    val order: Int?,
+    val weight: Int?,
+    val abilities: List<PokemonAbility>?,
     val forms: List<PokemonForm>?,
     @SerialName("game_indices") val gameIndices: List<VersionGameIndex>?,
-    val height: Int?,
     @SerialName("held_items") val heldItems: List<PokemonHeldItem>?,
-    val id: Int?,
-    @SerialName("is_default") val isDefault: Boolean?,
     @SerialName("location_area_encounters") val locationAreaEncounters: String?,
     val moves: List<PokemonMove>?,
-    val name: String,
-    val order: Int?,
-    @SerialName("past_types") val pastTypes: List<PastType>?,
     val species: Species?,
     val sprites: PokemonSprites?,
     val stats: List<PokemonStat>?,
     val types: List<PokemonType>?,
-    val weight: Int?,
+    @SerialName("past_types") val pastTypes: List<PokemonPastType>?
 )
 
 // data classでデータの定義
 @Serializable
 data class PokemonAbility(
-    val ability: Ability?,
+    @SerialName("is_hidden")val isHidden: Boolean?,
     val slot: Int?,
-    @SerialName("is_hidden")val isHidden: Boolean?
+    val ability: Ability?
 )
