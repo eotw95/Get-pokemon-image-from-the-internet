@@ -3,7 +3,7 @@ package com.example.pokelist.network
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-// Todo: APIのデータ構造に合わせたdata classの用意
+// Todo: APIのデータ構造に合わせたdata classの用意は全部満たさなくてもいいらしい。使いたい項目のみ。
 @Serializable
 data class Pokemon(
     val id: Int?,
@@ -26,7 +26,6 @@ data class Pokemon(
     @SerialName("past_types") val pastTypes: List<PokemonPastType>?
 )
 
-// data classでデータの定義
 @Serializable
 data class PokemonAbility(
     @SerialName("is_hidden")val isHidden: Boolean?,
