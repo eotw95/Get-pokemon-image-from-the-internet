@@ -3,6 +3,13 @@ package com.example.pokelist.ui.theme.screens
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import com.example.pokelist.R
+import com.example.pokelist.network.Pokemon
 
 @Composable
 fun HomeScreen(
@@ -10,15 +17,23 @@ fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     when(pokeUiState) {
-        is PokeUiState.Success -> ResultScreen(pokeUiState.pokeList, modifier)
+        is PokeUiState.Success -> ResultScreen(pokeUiState.pokemonData, modifier)
         is PokeUiState.Error -> ErrorScreen(modifier)
         is PokeUiState.Loading -> LoadingScreen(modifier)
     }
 }
 
 @Composable
-fun ResultScreen(pokeList: String, modifier: Modifier = Modifier) {
-    Text(text = pokeList)
+fun ResultScreen(pokemonData: Pokemon, modifier: Modifier = Modifier) {
+    AsyncImage(
+        model = ImageRequest.Builder(context = LocalContext.current)
+            .data(pokemonData.sprites.frontDefault)
+            .crossfade(true)
+            .build(),
+        contentDescription = stringResource(id = R.string.pokemon_image),
+        contentScale = ContentScale.FillBounds,
+
+    )
 }
 
 @Composable
