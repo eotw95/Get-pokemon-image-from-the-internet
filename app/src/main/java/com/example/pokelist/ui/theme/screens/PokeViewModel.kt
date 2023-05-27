@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokelist.network.PokeApi
+import com.example.pokelist.network.PokeApiPokemon
 import com.example.pokelist.network.Pokemon
 import kotlinx.coroutines.launch
 
@@ -33,7 +34,7 @@ class PokeViewModel: ViewModel() {
         Log.d(TAG, "getPokeList")
         viewModelScope.launch {
             pokeUiState = try {
-                val pokeData = PokeApi.retrofitService.getPokeData("chikorita")
+                val pokeData = getPokeApiPokemon("chikorita").toPokemon()
                 PokeUiState.Success(pokeData)
             } catch (e: Exception) {
                 Log.d(TAG, "$e")
@@ -41,5 +42,25 @@ class PokeViewModel: ViewModel() {
                 PokeUiState.Error
             }
         }
+    }
+
+    private suspend fun getPokeApiPokemon(name: String): PokeApiPokemon {
+        Log.d(TAG, "getPokeApiPokemon")
+        val response = PokeApi
+            .retrofitService
+            .getPokeData(name)
+        val pokeApiPokemon = response.body()
+        if (pokeApiPokemon == null) {
+            Log.e(TAG, "getPokeData response is null")
+        }
+        return requireNotNull(pokeApiPokemon)
+    }
+
+    private fun PokeApiPokemon.toPokemon(): Pokemon {
+        return Pokemon(
+            id = id,
+            name = name,
+            imageSrc = sprites.frontDefault
+        )
     }
 }
