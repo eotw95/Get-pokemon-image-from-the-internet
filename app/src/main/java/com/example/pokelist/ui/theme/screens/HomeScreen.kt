@@ -9,6 +9,7 @@ import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.pokelist.R
+import com.example.pokelist.network.PokeApiPokemon
 import com.example.pokelist.network.Pokemon
 
 @Composable
@@ -27,12 +28,11 @@ fun HomeScreen(
 fun ResultScreen(pokemonData: Pokemon, modifier: Modifier = Modifier) {
     AsyncImage(
         model = ImageRequest.Builder(context = LocalContext.current)
-            .data(pokemonData.sprites.frontDefault)
+            .data(pokemonData.imageSrc)
             .crossfade(true)
             .build(),
         contentDescription = stringResource(id = R.string.pokemon_image),
         contentScale = ContentScale.FillBounds,
-
     )
 }
 
