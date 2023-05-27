@@ -11,7 +11,7 @@ import com.example.pokelist.network.Pokemon
 import kotlinx.coroutines.launch
 
 interface PokeUiState {
-    data class Success(val pokeList: List<Pokemon>): PokeUiState
+    data class Success(val pokemonData: Pokemon): PokeUiState
     object Error: PokeUiState
     object Loading: PokeUiState
 }
@@ -33,9 +33,8 @@ class PokeViewModel: ViewModel() {
         Log.d(TAG, "getPokeList")
         viewModelScope.launch {
             pokeUiState = try {
-                val pokeInfo = PokeApi.retrofitService.getPokeData("aaa")
-                // Todo: PokeUiStateの型を修正
-                PokeUiState.Success(pokeInfo)
+                val pokeData = PokeApi.retrofitService.getPokeData("chikorita")
+                PokeUiState.Success(pokeData)
             } catch (e: Exception) {
                 Log.d(TAG, "$e")
                 Log.e(TAG, "getPokeList failed")
