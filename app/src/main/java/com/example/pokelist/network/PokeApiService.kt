@@ -16,7 +16,9 @@ private val retrofit = Retrofit
     .baseUrl(BASE_URL)
     .build()
 
-// Todo: getPokeData()呼び出しでIllegalArgumentException
+/**
+ * PokeApi client by using Retrofit
+ */
 interface PokeApiService {
     @GET("pokemon/{name}/")
     suspend fun getPokeData(@Path("name") name: String): Response<PokeApiPokemon>
