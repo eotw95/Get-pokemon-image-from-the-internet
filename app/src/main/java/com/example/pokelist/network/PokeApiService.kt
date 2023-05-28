@@ -19,6 +19,8 @@ private val retrofit = Retrofit
 /**
  * PokeApi client by using Retrofit
  */
+// Todo: getPokeData()でconverterの生成ができていないらしい
+//  java.lang.IllegalArgumentException: Unable to create converter for class com.example.pokelist.network.PokeApiPokemon
 interface PokeApiService {
     @GET("pokemon/{name}/")
     suspend fun getPokeData(@Path("name") name: String): Response<PokeApiPokemon>

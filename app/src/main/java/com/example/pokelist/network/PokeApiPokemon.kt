@@ -1,5 +1,6 @@
 package com.example.pokelist.network
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -7,7 +8,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class PokeApiPokemon(
-    val id: Int,
-    val name: String,
-    val sprites: Sprites
+    @SerialName("id") val id: Int,
+    @SerialName("name") val name: String,
+    @SerialName("sprites") val sprites: Sprites
 )
