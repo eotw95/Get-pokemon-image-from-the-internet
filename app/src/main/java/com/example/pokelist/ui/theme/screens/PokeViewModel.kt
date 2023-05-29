@@ -48,7 +48,7 @@ class PokeViewModel: ViewModel() {
         Log.d(TAG, "getPokeApiPokemon")
         val response = PokeApi
             .retrofitService
-            .getPokeData(name)
+            .getPokeApiPokemon(name)
         val pokeApiPokemon = response.body()
         Log.d(TAG, "getPokeApiPokemon pokeApiPokemon=$pokeApiPokemon")
         if (pokeApiPokemon == null) {

@@ -23,7 +23,7 @@ private val retrofit = Retrofit
 //  java.lang.IllegalArgumentException: Unable to create converter for class com.example.pokelist.network.PokeApiPokemon
 interface PokeApiService {
     @GET("pokemon/{name}/")
-    suspend fun getPokeData(@Path("name") name: String): Response<PokeApiPokemon>
+    suspend fun getPokeApiPokemon(@Path("name") name: String): Response<PokeApiPokemon>
 }
 
 object PokeApi {
