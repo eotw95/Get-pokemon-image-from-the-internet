@@ -25,8 +25,11 @@ private val retrofit = Retrofit.Builder()
  * PokeApi client by using Retrofit
  */
 interface PokeApiService {
-    @GET("pokemon/{name}/")
-    suspend fun getPokeApiPokemon(@Path("name") name: String): Response<PokeApiPokemon>
+//    @GET("pokemon/{name}/")
+//    suspend fun getPokeApiPokemon(@Path("name") name: String): Response<PokeApiPokemon>
+
+    @GET("pokemon/")
+    suspend fun getPokeApiPokemon(): Response<PokeApiPokemon>
 }
 
 object PokeApi {
