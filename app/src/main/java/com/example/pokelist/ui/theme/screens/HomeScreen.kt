@@ -9,7 +9,6 @@ import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.pokelist.R
-import com.example.pokelist.network.PokeApiPokemon
 import com.example.pokelist.network.Pokemon
 
 @Composable

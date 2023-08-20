@@ -1,14 +1,17 @@
 package com.example.pokelist.network
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.squareup.moshi.Json
 
 /**
  * Response pokemon from pokeApi
  */
-@Serializable
 data class PokeApiPokemon(
-    @SerialName("id") val id: Int,
-    @SerialName("name") val name: String,
-    @SerialName("sprites") val sprites: Sprites
-)
+    @Json(name = "id") val id: Int,
+    @Json(name = "name") val name: String,
+    @Json(name = "sprites") val sprites: Sprites
+) {
+    data class Sprites(
+        @Json(name = "back_default") val backDefault: String,
+        @Json(name = "front_default") val frontDefault: String
+    )
+}
