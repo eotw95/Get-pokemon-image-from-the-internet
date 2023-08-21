@@ -34,7 +34,7 @@ class PokeViewModel: ViewModel() {
         Log.d(TAG, "getPokeList")
         viewModelScope.launch {
             pokeUiState = try {
-                val pokeData = getPokeApiPokemon().toPokemon()
+                val pokeData = getPokeApiPokemon("chikorita").toPokemon()
                 PokeUiState.Success(pokeData)
             } catch (e: Exception) {
                 Log.d(TAG, "$e")
@@ -44,11 +44,11 @@ class PokeViewModel: ViewModel() {
         }
     }
 
-    private suspend fun getPokeApiPokemon(): PokeApiPokemon {
+    private suspend fun getPokeApiPokemon(name: String): PokeApiPokemon {
         Log.d(TAG, "getPokeApiPokemon")
         val response = PokeApi
             .retrofitService
-            .getPokeApiPokemon()
+            .getPokeApiPokemon(name)
         val pokeApiPokemon = response.body()
         Log.d(TAG, "getPokeApiPokemon pokeApiPokemon=$pokeApiPokemon")
         if (pokeApiPokemon == null) {
