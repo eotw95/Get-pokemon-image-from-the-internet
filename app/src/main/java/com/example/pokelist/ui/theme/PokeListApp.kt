@@ -8,6 +8,5 @@ import com.example.pokelist.ui.theme.screens.PokeViewModel
 
 @Composable
 fun PokeListApp(modifier: Modifier = Modifier) {
-    val pokeViewModel: PokeViewModel = viewModel()
-    HomeScreen(pokeUiState = pokeViewModel.pokeUiState)
+    HomeScreen()
 }
